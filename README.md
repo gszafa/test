@@ -33,8 +33,8 @@ You can run this project in 4 steps:
 ## Output
 
 When everything goes 'as planned' you should see something similar to this:
-
-`##########################
+```
+##########################
    testing application 
 ##########################
 execute:
@@ -56,7 +56,7 @@ results:
 433260, 1965-02-01, Make, Olivero, M, 1991-06-01, 
 
 248758, 1965-02-01, Snehasis, Muhlberg, M, 1991-07-16, 
-`
+```
 
 ## What next?
 
