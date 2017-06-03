@@ -2,8 +2,11 @@
 
 python_password=$1
 
-sudo apt-get install ansible vagrant virtualbox curl -y
+echo "##########################"
+echo " installing prerequisites "
+echo "##########################"
 
+sudo apt-get install ansible vagrant virtualbox curl -y
 
 echo "##########################"
 echo "    starting vagrant "

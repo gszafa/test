@@ -23,9 +23,10 @@ You can run this project in 4 steps:
 `git clone https://github.com/gszafa/test.git `
 
 3) Entering project directory
+
 `cd test`
 
-4) Starting deployment, remember about changing <SomePassword> which is needed for connecting app with DB
+4) Starting deployment, remember about changing `<SomePassword>` which is needed for connecting app with DB
 
 `./start_me.sh <SomePassword>`
 
