@@ -1,6 +1,6 @@
 ## What the project does ?
 
-This project is PoC of ansible playbook for nginx + mysql deployment in vagrant environment with test data and simple web app.
+This project is PoC of ansible playbook for nginx + mysql deployment in vagrant environment with test data and simple web app made in python.
 
 ## What do you need?
 
