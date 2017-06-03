@@ -1,5 +1,7 @@
 #!/bin/bash
 
+python_password=$1
+
 sudo apt-get install ansible vagrant virtualbox curl -y
 
 
@@ -14,7 +16,7 @@ echo "##########################"
 echo "    starting ansible "
 echo "##########################"
 
-ansible-playbook -i ../ansible/hosts ../ansible/main.yaml
+ansible-playbook -i ../ansible/hosts ../ansible/main.yaml --extra-vars "mysql_python_password=$python_password"
 
 
 echo "##########################"

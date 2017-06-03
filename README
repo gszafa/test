@@ -1,3 +1,20 @@
-1) sudo apt-get install git 
-2) git clone https://github.com/gszafa/test.git
-3) ./start_me.sh
+## What the project does ?
+
+This project is PoC of ansible playbook for nginx + mysql deployment in vagrant environment with test data and simple web app.
+
+## How to start ?
+You can run this project in 4 steps:
+
+1) Installing git to your machine
+
+`sudo apt-get update; sudo apt-get install git -y `
+
+2) Cloning this awsome project
+
+`git clone https://github.com/gszafa/test.git `
+
+3) Entering project directory
+`cd test`
+
+4) Starting deployment, remember about changing <SomePassword> which is needed for connecting app with DB
+`./start_me.sh <SomePassword>`

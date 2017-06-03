@@ -27,3 +27,14 @@
     file:
       path: /var/www/cgi-bin/app.py
       mode: 0755
+
+  - name: modify pass according to user input
+    become: yes
+    replace: 
+      dest: /var/www/cgi-bin/app.py
+      regexp: 'CHANGEME'
+      replace: '{{ mysql_python_password }}'
+   #   state: present
+    #  regexp: '^(.*)CHANGEME(.*)$'
+     # line: '\1{{ mysql_python_password }}\2'
+    #  backrefs: yes

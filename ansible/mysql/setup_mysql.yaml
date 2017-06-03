@@ -1,8 +1,5 @@
 ---
 - hosts: all
-  vars:
-    mysql_python_password: python
-    mysql_root_password: fart
   tasks:
 
   - name: Install MySQL
@@ -18,22 +15,6 @@
       name: mysql 
       state: started
       enabled: true
-
-  - name: update mysql root password for all root accounts
-    become: yes
-    mysql_user:
-      name: root
-      host: "{{ item }}"
-      password: "{{ mysql_root_password }}"
-      login_user: root
-      login_password: "{{ mysql_root_password }}"
-      check_implicit_admin: yes
-      priv: "*.*:ALL,GRANT"
-    with_items:
-      - "{{ ansible_hostname }}"
-      - 127.0.0.1
-      - ::1
-      - localhost
 
   - name: clone db repo
     git:
