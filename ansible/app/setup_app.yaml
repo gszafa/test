@@ -14,9 +14,9 @@
     become: yes
     command: pip install --upgrade pip
 
-  - name: install mysqldb python module
+  - name: install mysqldb and prettytable python module
     become: yes
-    command: pip install MySQL-python
+    command: pip install MySQL-python prettytable
 
   - name: Copy nginx configuration 
     become: yes
@@ -34,7 +34,3 @@
       dest: /var/www/cgi-bin/app.py
       regexp: 'CHANGEME'
       replace: '{{ mysql_python_password }}'
-   #   state: present
-    #  regexp: '^(.*)CHANGEME(.*)$'
-     # line: '\1{{ mysql_python_password }}\2'
-    #  backrefs: yes

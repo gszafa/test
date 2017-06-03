@@ -13,13 +13,12 @@ echo "    starting vagrant "
 echo "##########################"
 cd vagrant;
 vagrant up;
-sleep 60;
 
 echo "##########################"
 echo "    starting ansible "
 echo "##########################"
 
-ansible-playbook -i ../ansible/hosts ../ansible/main.yaml --extra-vars "mysql_python_password=$python_password"
+ansible-playbook -i ../ansible/hosts ../ansible/main.yaml --extra-vars "mysql_python_password=$python_password" --private-key=".vagrant/machines/default/virtualbox/private_key"
 
 
 echo "##########################"
