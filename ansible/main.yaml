@@ -1,0 +1,11 @@
+---
+- name: Install MySQL, Nginx and python
+  hosts: 192.168.33.10
+  remote_user: root
+  # remote_user: user
+  # become: yes
+  # become_method: sudo
+
+- include: mysql/setup_mysql.yaml
+- include: nginx/setup_nginx.yaml
+- include: app/setup_app.yaml

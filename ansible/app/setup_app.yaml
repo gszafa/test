@@ -1,0 +1,29 @@
+- hosts: all
+  tasks:
+  
+  - name: Install pip + python utils
+    become: yes
+    apt: name={{ item }} state=present
+    with_items:
+    - python-pip
+    - python-dev
+    - libmysqlclient-dev
+
+
+  - name: upgrade pip
+    become: yes
+    command: pip install --upgrade pip
+
+  - name: install mysqldb python module
+    become: yes
+    command: pip install MySQL-python
+
+  - name: Copy nginx configuration 
+    become: yes
+    template: src=app.py dest=/var/www/cgi-bin/app.py
+
+  - name: Give +x to app.py file
+    become: yes
+    file:
+      path: /var/www/cgi-bin/app.py
+      mode: 0755

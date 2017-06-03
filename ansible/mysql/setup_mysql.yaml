@@ -1,0 +1,62 @@
+---
+- hosts: all
+  vars:
+    mysql_python_password: python
+    mysql_root_password: fart
+  tasks:
+
+  - name: Install MySQL
+    apt: name={{ item }} update_cache=yes cache_valid_time=3600 state=present
+    become: yes
+    with_items:
+    - python-mysqldb
+    - mysql-server
+
+  - name: Start the MySQL service
+    become: yes
+    service: 
+      name: mysql 
+      state: started
+      enabled: true
+
+  - name: update mysql root password for all root accounts
+    become: yes
+    mysql_user:
+      name: root
+      host: "{{ item }}"
+      password: "{{ mysql_root_password }}"
+      login_user: root
+      login_password: "{{ mysql_root_password }}"
+      check_implicit_admin: yes
+      priv: "*.*:ALL,GRANT"
+    with_items:
+      - "{{ ansible_hostname }}"
+      - 127.0.0.1
+      - ::1
+      - localhost
+
+  - name: clone db repo
+    git:
+      repo: https://github.com/datacharmer/test_db.git
+      dest: /tmp/test_db
+      clone: yes
+
+  - name: Import DB 
+    become: yes
+    shell: cd /tmp/test_db; mysql < employees_partitioned.sql
+
+  - name: python pass/perm
+    become: yes
+    mysql_user: 
+      name: python 
+      host: "{{ item }}" 
+      password: "{{ mysql_python_password }}"
+      login_user: python
+      login_password: "{{ mysql_python_password }}"
+      check_implicit_admin: yes
+      priv: "employees.*:ALL,GRANT"
+    with_items:
+      - "{{ ansible_hostname }}"
+      - 127.0.0.1
+      - ::1
+      - localhost 
