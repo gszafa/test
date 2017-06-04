@@ -1,5 +1,5 @@
 ---
-- name: Install MySQL, Nginx and python
+- name: Install MySQL, Nginx and python app
   hosts: 192.168.33.10
   remote_user: root
 

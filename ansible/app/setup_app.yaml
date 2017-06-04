@@ -1,6 +1,12 @@
 - hosts: all
   tasks:
-  
+
+  - name: Update and upgrade apt packages
+    become: yes
+    apt:
+      upgrade: dist
+      update_cache: yes
+
   - name: Install pip + python utils
     become: yes
     apt: name={{ item }} state=present
@@ -8,7 +14,6 @@
     - python-pip
     - python-dev
     - libmysqlclient-dev
-
 
   - name: upgrade pip
     become: yes
