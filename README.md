@@ -4,12 +4,14 @@ This project is PoC of ansible playbook for nginx + mysql deployment in vagrant 
 
 ## What do you need?
 
-Project was tested on Ubuntu 16.04, if  you try to run it on different distro make sure that you have already installed:
-* ansible
-* vagrant
-* virtualbox
-* curl
-* git (as first step in *how to start* will not work on any RHEL like OS ;) )
+Project was tested on Ubuntu 16.04, if you try to run it on different distro make sure that you have already installed:
+* ansible (2.1.1.0)
+* vagrant (1.9.2)
+* virtualbox (5.0.40)
+* curl (7.47.0)
+* git (as first step in *how to start* will not work on any RHEL like OS ;) version: 2.7.4 )
+
+Project should work fine also on newer versions of packages, however for above versions it was builded and fully tested.
 
 ## How to start ?
 You can run this project in 4 steps:
