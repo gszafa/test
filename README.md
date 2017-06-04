@@ -28,7 +28,7 @@ You can run this project in 4 steps:
 
 `cd test`
 
-4) Starting deployment, remember about changing `<SomePassword>` which is needed for connecting app with DB
+4) Starting deployment, remember about changing `<SomePassword>` which is needed for connecting app with DB to password of your choice
 
 `./start_me.sh <SomePassword>`
 
